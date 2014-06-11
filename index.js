@@ -150,6 +150,7 @@
     var initialRetry = getDuration(options ? options.retry : NaN, 1000);
     var heartbeatTimeout = getDuration(options ? options.heartbeatTimeout : NaN, 45000);
     var lastEventId = (options && options.lastEventId && String(options.lastEventId)) || "";
+    var headers = (options && options.headers && Object(options.headers)) || {};
     var that = this;
     var retry = initialRetry;
     var wasActivity = false;
@@ -427,7 +428,15 @@
         //xhr.setRequestHeader("Cache-Control", "no-cache");
         xhr.setRequestHeader("Accept", "text/event-stream");
         // Request header field Last-Event-ID is not allowed by Access-Control-Allow-Headers.
-        //xhr.setRequestHeader("Last-Event-ID", lastEventId);
+        xhr.setRequestHeader("Last-Event-ID", lastEventId);
+
+        // Add the headers to the transport.
+        if (Object.getOwnPropertyNames(headers).length !== 0) {
+          var headerKeys = Object.keys(headers);
+          for (var i = 0; i < headerKeys.length; i++) {
+            xhr.setRequestHeader(headerKeys[i], headers[headerKeys[i]]);
+          }
+        }
       }
 
       xhr.send(null);
