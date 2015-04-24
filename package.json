@@ -1,0 +1,17 @@
+{
+  "name": "EventSource",
+  "version": "1.0.0",
+  "description": "EventSource polyfill - http://www.w3.org/TR/eventsource/",
+  "main": "index.js",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/apcera/EventSource.git"
+  },
+  "author": "vic99999@yandex.ru",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/apcera/EventSource/issues"
+  },
+  "homepage": "https://github.com/apcera/EventSource"
+}
