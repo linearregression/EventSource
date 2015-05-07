@@ -476,4 +476,4 @@
     global.EventSource = EventSource;
   }
 
-}(this));
+}(window));
